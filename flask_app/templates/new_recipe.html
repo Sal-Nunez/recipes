@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Add New Recipe</title>
+</head>
+<body class="bg-dark" style="color: whitesmoke">
+    <div class="container d-flex justify-content-between mt-5">
+        <div>
+            <h1>Add New Recipe</h1>
+        </div>
+        <div>
+            <a class="me-2" href="/dashboard">Dashboard</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </div>
+    <div class="container">
+        <form action="/recipes/create" method="post">
+        <div class="row mt-5">
+            <div class="col-4 me-5">
+                <div class="mb-3">
+                    <label for="exampleInputName1" class="form-label">Name:</label>
+                    <input name="name" type="text" class="form-control" id="exampleInputName1" aria-describedby="NameHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputdescription1" class="form-label">Description:</label>
+                    <textarea class="form-control overflow-auto" name="description" placeholder="Description Here" id="floatingTextarea2" style="height: 100px"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputinstructions1" class="form-label">Instructions:</label>
+                    <textarea class="form-control overflow-auto" name="instructions" placeholder="Instructions Here" id="floatingTextarea2" style="height: 100px"></textarea>
+                </div>
+                <input type="hidden" value="{{id}}" name="user_id">
+                <button class="btn btn-primary">Create</button>
+                {% for message in get_flashed_messages() %}
+                <p class="alert alert-danger">{{message}}</p>
+                {% endfor %}
+            </div>
+            <div class="col-4 ms-5">
+                <div class="mb-3">
+                    <label for="exampleInputdate_made_on1" class="form-label">Date Made On:</label>
+                    <input name="date_made_on" type="date" class="form-control" id="exampleInputdate_made_on1" aria-describedby="date_made_onHelp">
+                </div>
+                <div>
+                    <h3 class="mt-5 mb-5">Under 30 Min?</h3>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="under_30_min" id="inlineRadio1" value="yes">
+                        <label class="form-check-label" for="inlineRadio1">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="under_30_min" id="inlineRadio2" value="no">
+                        <label class="form-check-label" for="inlineRadio2">No</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body class="container bg-dark" style="color: whitesmoke">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-4 me-5">
+                <h1>Login</h1>
+                <form action="/login" method="post">
+                    <div class="mb-3">
+                        <label for="exampleInputemail1" class="form-label">Email:</label>
+                        <input placeholder="Email" type="email" name="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password:</label>
+                        <input placeholder="Password" type="password" name="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    {% for message in get_flashed_messages(category_filter=["login"]) %}
+                    <p class="alert alert-danger mt-2">{{message}}</p>
+                    {% endfor %}
+                </form>
+            </div>
+            <div class="col-4 ms-5">
+                <h1>Registration</h1>
+                <form action="/register" method="post">
+                    <div class="mb-3">
+                        <label for="exampleInputfirst_name1" class="form-label">First Name:</label>
+                        <input placeholder="First Name" name="first_name" class="form-control" id="exampleInputfirst_name1" aria-describedby="first_nameHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputlast_name1" class="form-label">Last Name:</label>
+                        <input placeholder="Last Name" type="last_name" name="last_name" class="form-control" id="exampleInputlast_name1" aria-describedby="last_nameHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputemail1" class="form-label">Email:</label>
+                        <input placeholder="Email" type="email" name="email" class="form-control" id="exampleInputemail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password:</label>
+                        <input placeholder="Password" type="password" name="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPasswordConfirmation1" class="form-label">Confirm Password:</label>
+                        <input placeholder="Confirm Password" type="password" name="password_confirmation" class="form-control" id="exampleInputPasswordConfirmation1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register Now!</button>
+                    {% for message in get_flashed_messages(category_filter=["registration"]) %}
+                    <p>{{message}}</p> 
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>
